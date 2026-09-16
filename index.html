@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Моя страница</title> 
+    <style> 
+        .header { 
+            color: green; 
+            font-size: 30px; 
+            padding: 20px 40px; 
+        } 
+ 
+        .fix-top-right { 
+            position: fixed; 
+            right: 0; 
+            top: 0; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <h1 class="fix-top-right header" style="color:red">Заголовок</h1> 
+ 
+    <p>Это мой текст</p> 
+
+    <a href="/index.html">Ссылка</a>
+ 
+    <div id="myDiv" class="header"> 
+        123 
+    </div> 
+
+    <ul>
+        <li>Первый елемент</li>
+        <li>Второй елемент</li>
+        <li>Третий елемент</li>
+    </ul>
+ 
+    <button id="btn">Нажать</button> 
+ 
+    <label> 
+        <input type="text" name="text" placeholder="Ввести"> 
+    </label> 
+ 
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnzYoC6u0S78mYiE-sKGzMEDLdpVO1RTRwdgFSS10OvA&s=10"> 
+ 
+    <script> 
+        console.log('HELLO WORLD'); 
+ 
+        let a = 10; 
+        let b = 20; 
+        let intervalId = null; 
+ 
+        const elem = document.getElementById('myDiv'); 
+ 
+        if (elem) { 
+            intervalId = setInterval(() => { 
+                elem.innerHTML = a++; 
+            }, 100); 
+        } 
+ 
+        console.log(a + b); 
+ 
+        const btn = document.getElementById('btn'); 
+        btn.addEventListener('click', () => { 
+            if (intervalId) { 
+                clearInterval(intervalId); 
+                intervalId = null; 
+            } else { 
+                intervalId = setInterval(() => { 
+                    elem.innerHTML = a++; 
+                }, 100); 
+            } 
+        }); 
+    </script> 
+ 
+</body> 
+</html>
